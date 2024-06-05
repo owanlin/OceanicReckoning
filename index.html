@@ -9,13 +9,17 @@
     <style>
 
         .navigate{
-            display: block;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            position: relative;
             margin: 0;
             padding: 0;
-            top: 0;
             width: 100%;
             height: 60px;
-            background-color: rgb(15, 7, 48);
+            font-weight: 500;
+            box-shadow: 1px 1px 3px  #888888;
+            
+            
             
 
         }
@@ -42,6 +46,38 @@
             display: block;
         }
 
+        .MidWeb{
+            margin: 0;
+            padding: 0;
+        }
+
+        .video{
+            float: left;
+            margin-top: 5%;
+            height: 57.5%;
+            margin-left: 7.5%;
+            margin-bottom: 10%;
+            width: 60%;
+            padding: 0%; 
+            background-color: aqua;
+
+            
+            
+        }
+
+        .RightOfVideo{
+            float: left;
+            width: 20%;
+            margin-top: 5%;
+            margin-left: 5%;
+            padding: 0%; 
+
+        }
+
+        .EndOfPage{
+            clear: both;
+        }
+
     </style>
 </head>
 
@@ -63,7 +99,7 @@
             <p>
             <a href="WorldGeneral.html"
                 style="text-decoration: none;
-                color: rgb(240, 209, 235);">/ 世界观</a></p></div>
+                color: rgb(132, 145, 165)">/ 世界观</a></p></div>
 
         <div class="DropDownSpan"
              style="width: 200px;
@@ -71,7 +107,7 @@
             <p>
             <a href="EraGeneral.html"
                 style="text-decoration: none;
-                color: rgb(240, 209, 235);">/ 编年史</a></p></div>
+                color: rgb(132, 145, 165)">/ 编年史</a></p></div>
         
         <div class="DropDownSpan"
              style="width: 200px;
@@ -79,17 +115,56 @@
             <p>
             <a href="Database.html"
                 style="text-decoration: none;
-                color: rgb(240, 209, 235);">/ 文献集</a></p></div>
+                color: rgb(132, 145, 165)">/ 文献集</a></p></div>
+
+            
     </div>
 
+    <div class ="MidWeb">
 
-    <!-- PV播放器 -->
-    <div style="margin: 0%; padding: 0;">
-        <video muted width="100%" autoplay >
+     <!-- PV播放器 -->
+     <div class = "video">
+        <video muted width="100%" autoplay style="box-shadow: 30px 30px 30px  #888888;">
             <source src="src/PV1.0.mp4" type="video/mp4">
         </video>
     </div>
-    <!-- 中部新闻（需额外制作页面以及展开） -->
+
+    <div class = "RightOfVideo">
+        <img src = "src/Testing.jpg " alt="Testing" style="width: 100%; ">
+
+        <img src = "src/Testing.jpg " alt="Testing" style="width: 100%; padding-top: 3.7%;">
+
+        <img src = "src/Testing.jpg " alt="Testing" style="width: 100%; padding-top: 3.7%;">
+
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            var imageScrollDiv = document.getElementByClass('RightOfVideo');
+            var images = imageScrollDiv.getElementsByTagName('img');
+            var currentIndex = 0;
+            
+            // 滚动函数
+            function scrollImages() {
+                // 移除第一个图片并添加到最后，模拟滚动效果
+                let firstImage = images[0];
+                firstImage.style.opacity = 0.5; // 在移动前降低透明度
+                imageScrollDiv.appendChild(firstImage);
+                firstImage.style.opacity = 1; // 移动后恢复透明度
+                currentIndex = (currentIndex + 1) % images.length; // 更新索引
+            }
+            
+            // 每隔一段时间调用滚动函数
+            setInterval(scrollImages, 2000); // 这里的2000是滚动间隔时间，单位是毫秒
+        };
+    </script>
+
+    </div>
+
+
+   
+    <!-- 中部新闻（需额外制作页面以及展开） 
     <div style="margin: 0;">
         <div style="display: block;">
             <h1 style="background-color: black; color: crimson; margin: 0;"><marquee scrollamount = "15" scrolldelay = "30">科洛菈塔新闻速报</marquee></h1>
@@ -110,14 +185,16 @@
             <p style="margin-left: 15px; font-size: 15px;">点击文章下“阅读原文”即可体验...[详情]</p>
         </div>
 
+        
 
-    </div>
+
+    </div> -->
 
 
 
 
     <!-- 页面末尾部分 -->
-    <div style="background-color: rgb(15, 7, 48); width: 100%; height: 450px; margin: 0;">
+    <div class = "EndOfPage"  style="background-color: rgb(15, 7, 48); width: 100%; height: 450px; margin: 0;">
         
         <div style="margin-top: 35px; margin-left: 40px; float: left; color: rgb(203, 231, 255);">
             <p>感谢访问归序海！</p>
